@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, {Fragment} from 'react';
+import Header from "./components/layout/Header"
+import Navegation from './components/layout/Navegation';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+      <Fragment>
+          <Header/>
+          <div className='grid contenedor contenedor-principal'>
+            <Navegation/>
+
+            <main className='caja-contenido col-9'>
+
+            </main>
+          </div>
+    </Fragment>
+    
+
+    );
 }
 
 export default App;

@@ -1,8 +1,10 @@
 import React, {Fragment, useState} from 'react';
 import clienteAxios from '../../config/axios';
-
+import Swal from 'sweetalert2';
+import {useNavigate}  from "react-router-dom";
 
 const NewClient = () => {
+    let navigate = useNavigate();
     const [client, saveClient] = useState({
         name: "",
         lastName: "",
@@ -11,7 +13,6 @@ const NewClient = () => {
         email: ""
     });
 
-    
     const updateState = e =>{
         saveClient({
             ...client,
@@ -35,9 +36,19 @@ const NewClient = () => {
         clienteAxios.post("/clients", client)
         .then(res=>{
             if(res.data.message){
-                console.log("OK");
+                Swal.fire(
+                    'Good!',
+                    res.data.message,
+                    'success'
+                  )
+                  navigate("/");
+            
             }else{
-                console.log("BAD")
+                Swal.fire(
+                    'Error!',
+                    res.data.error,
+                    'error'
+                  )
             }
         });
 

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import clienteAxios from "../../config/axios";
 import Client from './Client';
+import Spinner from "../layout/Spinner";
+
 const Clients = () => {
     
     const [clients,addClients] = useState([]); 
@@ -16,15 +18,14 @@ const Clients = () => {
         consultarAPI(); 
     },[clients])
 
+    if(!clients.length) return <Spinner/>
     return ( 
-        
         <Fragment>
-            <h1>Cliets</h1>
+            <h2>Cliets</h2>
             <Link to={"/clients/new"} className='btn btn-verde nvo-cliente'>
                 New Client
                 <i className='fas fa-plus-circle'></i>
             </Link>
-
             <ul className='listado-clientes'>
                 {clients.map(client=>(
                     <Client

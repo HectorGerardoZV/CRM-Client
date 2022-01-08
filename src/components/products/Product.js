@@ -50,7 +50,7 @@ const Product = ({product}) => {
                 }
             </div>
             <div className="acciones">
-                <Link to={`/product/edit/${_id}`} className="btn btn-azul">
+                <Link to={`/products/edit/${_id}`} className="btn btn-azul">
                     <i className="fas fa-pen-alt"></i>
                     Edit Product
                 </Link>

@@ -73,31 +73,31 @@ const EditClient = () => {
                 <legend>Llena todos los campos</legend>
                 <div className="campo">
                     <label>Name:</label>
-                    <input type="text" placeholder="Client name" name="name" value={client.name}
+                    <input type="text" placeholder="Client name" name="name" defaultValue={client.name}
                         onInput={updateState}
                     />
                 </div>
                 <div className="campo">
                     <label>Last name:</label>
-                    <input type="text" placeholder="Client last name" name="lastName" value={client.lastName}
+                    <input type="text" placeholder="Client last name" name="lastName" defaultValue={client.lastName}
                         onChange={updateState}
                     />
                 </div>
                 <div className="campo">
                     <label>Company:</label>
-                    <input type="text" placeholder="Client Company" name="company" value={client.company}
+                    <input type="text" placeholder="Client Company" name="company" defaultValue={client.company}
                         onChange={updateState}
                     />
                 </div>
                 <div className="campo">
                     <label>Email:</label>
-                    <input type="email" placeholder="Client email" name="email" value={client.email}
+                    <input type="email" placeholder="Client email" name="email" defaultValue={client.email}
                         onChange={updateState}
                     />
                 </div>
                 <div className="campo">
                     <label>Phone Number:</label>
-                    <input type="text" placeholder="Client phone number" name="phoneNumber" value={client.phoneNumber}
+                    <input type="text" placeholder="Client phone number" name="phoneNumber" defaultValue={client.phoneNumber}
                         onChange={updateState}
                     />
                 </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import clienteAxios from "../../config/axios";
 import Client from './Client';
 const Clients = () => {
-
+    
     const [clients,addClients] = useState([]); 
 
     const consultarAPI = async ()=>{
@@ -14,7 +14,7 @@ const Clients = () => {
 
     useEffect(()=>{
         consultarAPI(); 
-    },[])
+    },[clients])
 
     return ( 
         

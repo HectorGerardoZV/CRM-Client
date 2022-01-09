@@ -1,17 +1,30 @@
-import React, {Fragment, useEffect,useState} from 'react';
+import React, {Fragment, useEffect,useState,useContext} from 'react';
 import { Link } from 'react-router-dom';
 import clienteAxios from '../../config/axios';
 import Product from './Product';
 import Spinner from "../layout/Spinner";
+import { CRMContext } from '../../context/CRMContext';
+import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
-
+    let navigate = useNavigate();
     const [products, saveProducts] = useState([]);
+    const [auth, saveAuth] = useContext(CRMContext);
 
-
+    
     const queryApi = async ()=>{
-        const productsArray = await clienteAxios.get("/products");
+        if(auth.auth){
+            const productsArray = await clienteAxios.get("/products",{
+                headers:{
+                    Authorization: `Bearer ${auth.token}`
+                }
+            });
         saveProducts(productsArray.data);
+        }else{
+            navigate("/signIn");
+        }
+
+        
     }
     useEffect(()=>{
         queryApi();

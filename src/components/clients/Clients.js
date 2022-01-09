@@ -1,23 +1,43 @@
-import React, {useEffect,useState,Fragment} from 'react';
+import React, {useEffect,useState,Fragment,useContext} from 'react';
 import { Link } from 'react-router-dom';
 
 import clienteAxios from "../../config/axios";
 import Client from './Client';
 import Spinner from "../layout/Spinner";
+import { CRMContext } from '../../context/CRMContext';
+import { useNavigate } from 'react-router-dom';
 
 const Clients = () => {
-    
+    let navigate = useNavigate();
     const [clients,addClients] = useState([]); 
-
+    const [auth, saveAuth]= useContext(CRMContext);
+    const {token} = auth;
     const consultarAPI = async ()=>{
-        const query = await clienteAxios.get("/clients");
+       try {
+            const query = await clienteAxios.get("/clients",{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         addClients(query.data);
+       } catch (error) {
+        navigate("/signIn");
+       }
+       
     }
 
     useEffect(()=>{
-        consultarAPI(); 
+        if(token!==""){
+            consultarAPI(); 
+        }else{
+            navigate("/signIn");
+        }
+        
     },[clients])
 
+    if(auth.token===""){
+        navigate("/signIn");
+    }
     if(!clients.length) return <Spinner/>
     return ( 
         <Fragment>

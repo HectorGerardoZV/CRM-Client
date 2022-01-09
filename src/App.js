@@ -14,6 +14,7 @@ import EditProduct from './components/products/EditProduct';
 import NewProduct from './components/products/NewProduct';
 //Order components
 import Orders from './components/orders/Orders';
+import NewOrder from './components/orders/NewOrder';
 
 function App() {
     return (
@@ -25,14 +26,15 @@ function App() {
               <main className='caja-contenido col-9'>
                   <Routes>
                     <Route path = "/" element= {<Clients/>} />
-                    <Route path = "/clients/edit/:id" element={<EditClient/>}/>
                     <Route path = "/clients/new" element = {<NewClient/>}/>
+                    <Route path = "/clients/edit/:id" element={<EditClient/>}/>
 
                     <Route path = "/products" element= {<Products/>} />
                     <Route path = "/products/new" element= {<NewProduct/>} />
                     <Route path = "/products/edit/:id" element= {<EditProduct/>} />
                     
                     <Route path = "/orders" element= {<Orders/>} />
+                    <Route path = "/orders/new/:id" element= {<NewOrder/>} />
                   </Routes>
               </main>
             </div>

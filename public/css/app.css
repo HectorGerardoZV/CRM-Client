@@ -104,7 +104,7 @@ h2 {
     width: auto;
 }
 .btn-eliminar {
-    margin-top: 1rem;
+    margin-top: 0rem;
     font-family: "Font Awesome 5 Free", Arial, Helvetica, sans-serif; 
     font-weight: 900; 
 }
@@ -258,13 +258,18 @@ h2 {
         justify-content: flex-start;
     }
 }
+
+.acciones{
+   
+    gap: 1rem;
+}
 .acciones form {
     width: 100%;
 }
 .acciones .btn {
     display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 @media (min-width: 768px) {

@@ -53,6 +53,10 @@ const Client = ({client}) => {
                     Edit
                     <i className='fas fa-pen-alt'></i>
                 </Link>
+                <Link to={`/orders/new/${_id}`} className='btn btn-amarillo'>
+                    New Order
+                    <i className='fas fa-plus'></i>
+                </Link>
                 <button className='btn btn-rojo'
                 onClick={()=>deleteClient(_id)}
                 >
